@@ -1,7 +1,11 @@
-import { LikeComponent } from './like.component';
+import {enableProdMode } from '@angular/core';
+import {platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import {AppModule } from './app/app.module';
+import {environment } from './environments/environment';
 
-let component = new LikeComponent(10, true);
-component.onClick();
+if(environment.production){
+    enableProdMode();
+}
 
-console.log('likesCount: ${component.likesCount}, isSelected: ${component.isSelected}');
+platformBrowserDynamic().bootstrapModule(AppModule);
