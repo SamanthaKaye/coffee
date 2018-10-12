@@ -7,8 +7,12 @@
             id="username" 
             type="text" 
             class="form-control">
-            <div *ngIf ="username.touched && username.invalid" class="alert alert-danger">Username is required</div>
-    </div>
+            <div *ngIf ="username.touched && username.invalid" class="alert alert-danger">
+            <div *ngIf="username.error.required">Username is Required </div>
+            <div *ngIf="username.error.minLength"> Username should be min {{username.errors.minlength.requiredLength }} characters. </div>
+            <div *ngIf="username.error.cannotContainSpace">Username can't contain spaces</div>
+    
+        </div>
     <div class="form-group">
         <label for="password">Password</label>
         <input 
